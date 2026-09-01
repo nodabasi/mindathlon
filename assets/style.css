@@ -1,5 +1,9 @@
 /* Shared stylesheet for every page. Palette mirrors the app: slate ink on a
-   near-white ground, with the four game colours used as accents. */
+   near-white ground, with the four game colours (green, red, yellow, blue)
+   carried through headings, cards and bullets as accents.
+
+   Mobile first: the base rules target a phone, and the only media queries widen
+   things for larger screens or adapt to a dark colour scheme. */
 
 :root {
   --ink: #0f172a;
@@ -8,10 +12,19 @@
   --ground: #f8fafc;
   --card: #ffffff;
   --line: #e2e8f0;
-  --blue: #2563eb;
+
   --green: #16a34a;
   --red: #dc2626;
   --yellow: #ca8a04;
+  --blue: #2563eb;
+
+  /* Same four hues at low alpha, for card and badge fills. */
+  --green-tint: #16a34a1a;
+  --red-tint: #dc26261a;
+  --yellow-tint: #ca8a041a;
+  --blue-tint: #2563eb1a;
+
+  --shadow: 0 6px 24px rgb(15 23 42 / 0.10);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,13 +32,21 @@
     --ink: #f1f5f9;
     --ink-soft: #cbd5e1;
     --ink-faint: #94a3b8;
-    --ground: #0f172a;
+    --ground: #0b1220;
     --card: #172033;
     --line: #334155;
-    --blue: #60a5fa;
+
     --green: #4ade80;
     --red: #f87171;
     --yellow: #fde047;
+    --blue: #60a5fa;
+
+    --green-tint: #4ade8024;
+    --red-tint: #f8717124;
+    --yellow-tint: #fde04724;
+    --blue-tint: #60a5fa24;
+
+    --shadow: 0 6px 24px rgb(0 0 0 / 0.35);
   }
 }
 
@@ -33,49 +54,86 @@
 
 body {
   margin: 0;
-  padding: 0 20px 72px;
+  padding: 0 18px 64px;
   background: var(--ground);
   color: var(--ink);
   font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
 }
+
+img { max-width: 100%; }
 
 .wrap { max-width: 680px; margin: 0 auto; }
 
-/* Header */
+/* Header — a tinted band carrying all four game colours */
 
-header { padding: 56px 0 8px; text-align: center; }
+header {
+  position: relative;
+  margin: 18px 0 8px;
+  padding: 40px 20px 32px;
+  text-align: center;
+  border-radius: 24px;
+  background:
+    radial-gradient(60% 80% at 15% 0%, var(--green-tint), transparent 70%),
+    radial-gradient(60% 80% at 85% 0%, var(--blue-tint), transparent 70%),
+    radial-gradient(70% 90% at 50% 110%, var(--yellow-tint), transparent 70%);
+}
 
 header img {
-  width: 96px;
-  height: 96px;
-  border-radius: 22px;
-  box-shadow: 0 6px 24px rgb(15 23 42 / 0.14);
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
 h1 {
-  margin: 20px 0 6px;
-  font-size: 34px;
+  margin: 18px 0 6px;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: 1.15;
   letter-spacing: -0.02em;
+  background: linear-gradient(100deg, var(--blue), var(--green) 55%, var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .tagline {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 19px;
+  font-size: clamp(16px, 4.4vw, 19px);
 }
 
-/* Sections */
+/* Section headings — a coloured bar that cycles through the four hues */
 
 h2 {
-  margin: 44px 0 12px;
-  font-size: 22px;
+  position: relative;
+  margin: 40px 0 12px;
+  padding-left: 14px;
+  font-size: clamp(20px, 5.4vw, 23px);
+  line-height: 1.3;
   letter-spacing: -0.01em;
 }
 
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.16em;
+  bottom: 0.16em;
+  width: 5px;
+  border-radius: 3px;
+  background: var(--blue);
+}
+
+h2:nth-of-type(4n + 2)::before { background: var(--green); }
+h2:nth-of-type(4n + 3)::before { background: var(--yellow); }
+h2:nth-of-type(4n + 4)::before { background: var(--red); }
+
 h3 {
-  margin: 28px 0 4px;
+  margin: 26px 0 4px;
   font-size: 17px;
+  color: var(--blue);
 }
 
 p { margin: 12px 0; }
@@ -83,65 +141,147 @@ p { margin: 12px 0; }
 a { color: var(--blue); }
 
 hr {
-  margin: 48px 0 0;
+  margin: 44px 0 0;
   border: 0;
-  border-top: 1px solid var(--line);
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--green), var(--yellow), var(--red), var(--blue));
+  opacity: 0.75;
 }
 
-/* Game list on the landing page */
+/* Stage list on the landing page — numbered badge in each game's own colour */
 
-.games { list-style: none; margin: 16px 0; padding: 0; }
+.games {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  counter-reset: stage;
+}
 
 .games li {
+  position: relative;
+  counter-increment: stage;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 14px 16px;
+  border-left: 5px solid var(--blue);
+  border-radius: 14px;
+  padding: 14px 16px 14px 56px;
   margin-bottom: 10px;
+  box-shadow: var(--shadow);
 }
 
-.games b { display: block; }
+.games li::before {
+  content: counter(stage);
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-tint);
+}
+
+.games b { display: block; font-size: 17px; }
 
 .games span { color: var(--ink-soft); font-size: 15px; }
 
+.games li:nth-child(1) { border-left-color: var(--green); }
 .games li:nth-child(1) b { color: var(--green); }
+.games li:nth-child(1)::before { color: var(--green); background: var(--green-tint); }
+
+.games li:nth-child(2) { border-left-color: var(--red); }
 .games li:nth-child(2) b { color: var(--red); }
+.games li:nth-child(2)::before { color: var(--red); background: var(--red-tint); }
+
+.games li:nth-child(3) { border-left-color: var(--blue); }
 .games li:nth-child(3) b { color: var(--blue); }
+
+.games li:nth-child(4) { border-left-color: var(--yellow); }
 .games li:nth-child(4) b { color: var(--yellow); }
+.games li:nth-child(4)::before { color: var(--yellow); background: var(--yellow-tint); }
+
+.games li:nth-child(5) { border-left-color: var(--green); }
 .games li:nth-child(5) b { color: var(--green); }
+.games li:nth-child(5)::before { color: var(--green); background: var(--green-tint); }
+
+.games li:nth-child(6) { border-left-color: var(--blue); }
 .games li:nth-child(6) b { color: var(--blue); }
 
-/* Plain bullet lists */
+/* Plain bullet lists — coloured markers, cycling */
 
-ul.plain { padding-left: 20px; }
-ul.plain li { margin: 6px 0; }
+ul.plain { padding-left: 22px; }
+
+ul.plain li { margin: 7px 0; }
+
+ul.plain li::marker { color: var(--blue); font-size: 1.1em; }
+ul.plain li:nth-child(4n + 1)::marker { color: var(--green); }
+ul.plain li:nth-child(4n + 2)::marker { color: var(--yellow); }
+ul.plain li:nth-child(4n + 3)::marker { color: var(--red); }
 
 /* Contact box */
 
 .contact {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 18px 20px;
+  border-top: 4px solid var(--green);
+  border-radius: 14px;
+  padding: 16px 18px;
   margin: 20px 0;
+  box-shadow: var(--shadow);
 }
 
+.contact p:first-child { margin-top: 0; }
+.contact p:last-child { margin-bottom: 0; }
 .contact a { font-weight: 600; }
 
-/* Meta line under a policy heading */
+/* Effective-date line under a policy heading */
 
-.meta { color: var(--ink-faint); font-size: 15px; margin-top: 0; }
+.meta {
+  display: inline-block;
+  margin: 6px 0 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
 
 /* Footer */
 
 footer {
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 22px;
+  padding-top: 18px;
   color: var(--ink-faint);
   font-size: 15px;
+  line-height: 2.2;
   text-align: center;
 }
 
-footer a { margin: 0 8px; white-space: nowrap; }
+footer a {
+  margin: 0 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+}
 
-footer .copyright { margin-top: 14px; }
+footer a:hover { text-decoration: underline; }
+
+footer .copyright { margin-top: 16px; line-height: 1.6; }
+
+/* Wider screens */
+
+@media (min-width: 560px) {
+  body { padding: 0 24px 72px; }
+  header { padding: 52px 24px 40px; }
+  header img { width: 96px; height: 96px; }
+  .games li { padding-right: 20px; }
+}
