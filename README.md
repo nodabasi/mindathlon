@@ -16,6 +16,11 @@ push; Pages redeploys in a minute or two.
 | `/mindathlon/tr/` | `tr/index.html` | Marketing URL (Turkish) |
 | `/mindathlon/tr/support/` | `tr/support/index.html` | Support URL (Turkish) |
 | `/mindathlon/tr/privacy/` | `tr/privacy/index.html` | Privacy Policy URL (Turkish) |
+| `/mindathlon/test/` | `test/index.html` | — closed-test invite (English) |
+| `/mindathlon/tr/test/` | `tr/test/index.html` | — closed-test invite (Turkish) |
+
+The two `test/` pages are not registered anywhere; they exist to be shared while the app
+is in closed testing and can be removed once it is public.
 
 **Do not rename these directories.** The paths are registered in App Store Connect and
 Google Play Console; changing one breaks a live store link.

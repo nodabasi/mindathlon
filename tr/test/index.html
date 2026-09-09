@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindathlon — Test Rehberi</title>
+<meta name="description" content="Mindathlon'un kapalı testine katılmak için dört adım: gruba katılın, tester olun, uygulamayı indirin.">
+<link rel="icon" href="../../assets/logo.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="alternate" hreflang="en" href="https://nodabasi.github.io/mindathlon/test/">
+<link rel="alternate" hreflang="tr" href="https://nodabasi.github.io/mindathlon/tr/test/">
+<style>
+/* Sayfaya özel: kopyalanabilir adres satırı ve uyarı kutusu.
+   Renkler ve kart görünümü paylaşılan stilden geliyor. */
+
+.copybox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.copybox code {
+  flex: 1 1 210px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  word-break: break-all;
+  user-select: all;
+}
+
+.copybtn {
+  flex: 0 0 auto;
+  min-width: 116px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--blue);
+  font: 600 14px/1.2 inherit;
+  cursor: pointer;
+}
+
+.copybtn:hover { border-color: var(--blue); }
+.copybtn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.copybtn[data-done="1"] { background: var(--green-tint); color: var(--green); }
+
+.notebox {
+  margin: 20px 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.warnbox {
+  margin: 14px 0 4px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--yellow);
+  border-radius: 12px;
+}
+
+.notebox p:first-child,
+.warnbox p:first-child { margin-top: 0; }
+
+.notebox p:last-child,
+.warnbox ol:last-child { margin-bottom: 0; }
+
+.warnbox ol { margin: 10px 0 0; padding-left: 20px; }
+.warnbox ol li { margin: 5px 0; }
+.warnbox ol li::marker { color: var(--yellow); font-weight: 700; }
+
+/* Adım kartlarının içinde başlıktan sonra gelen açıklama metni */
+.games p { margin: 8px 0; font-size: 15px; color: var(--ink-soft); }
+.games p b, .games p strong { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="../../assets/logo.png" alt="Mindathlon">
+  <h1>Test Rehberi</h1>
+  <p class="tagline">Mindathlon'u herkesten önce deneyin</p>
+</header>
+
+<p>Mindathlon henüz Google Play'de herkese açık değil. Arama sonuçlarında çıkmaz; yalnızca
+kapalı teste kayıtlı hesaplara görünür. Aşağıdaki dört adım sizi o listeye ekler.</p>
+
+<p>Toplam beş dakika sürer ve tek gerçek şartı, uygulamanın telefonunuzda
+<b>14 gün kurulu kalması</b>.</p>
+
+<div class="notebox">
+  <p><b>Önce tek kural:</b> aşağıdaki adreslere dokunmayın. <b>Kopyala</b>'ya basın,
+  sonra <b>Chrome'u açıp adres çubuğuna yapıştırın</b>.</p>
+  <p>Sebebi şu: Android bu adreslere dokunulduğunda sayfayı Play Store uygulamasına
+  devrediyor, o da açamayıp <b>boş beyaz bir ekran</b> gösteriyor. Adres çubuğuna
+  yapıştırdığınızda bu devir gerçekleşmiyor ve sayfa normal açılıyor.</p>
+</div>
+
+<h2>Dört adım</h2>
+
+<ul class="games">
+
+  <li>
+    <b>Hesabınızı öğrenin</b>
+    <p>Play Store'u açın, sağ üstteki profil resmine dokunun. Orada yazan Gmail adresi
+    sizin test hesabınız.</p>
+    <p>Sonraki üç adımın <b>tamamı</b> bu hesapla yapılmalı. Telefonda birden fazla Google
+    hesabı varsa en sık yapılan hata budur.</p>
+  </li>
+
+  <li>
+    <b>Test grubuna katılın</b>
+    <p>Bu adresi kopyalayın, Chrome'un adres çubuğuna yapıştırıp açın:</p>
+    <div class="copybox">
+      <code id="url-group">https://groups.google.com/g/mindathlon-testers</code>
+      <button class="copybtn" type="button" data-target="url-group">Kopyala</button>
+    </div>
+    <p>Sağ üstteki profil resminden birinci adımdaki hesapta olduğunuzu doğrulayın, sonra
+    <b>Gruba katıl</b>'a dokunun. Onay beklemez, anında üye olursunuz.</p>
+  </li>
+
+  <li>
+    <b>Tester olun</b>
+    <p>Chrome'da yeni bir sekme açın. Bu adresi kopyalayıp yine <b>adres çubuğuna</b>
+    yapıştırın:</p>
+    <div class="copybox">
+      <code id="url-optin">https://play.google.com/apps/testing/com.odabasi.brainathlon</code>
+      <button class="copybtn" type="button" data-target="url-optin">Kopyala</button>
+    </div>
+    <p>Açılan sayfada <b>Become a tester</b>'a dokunun. "You're a tester" yazısını
+    gördüğünüzde bu adım tamamdır.</p>
+    <div class="warnbox">
+      <p><b>Yine beyaz ekran açılırsa</b> Play Store adresi kapmaya devam ediyor
+      demektir. Kapatmak için:</p>
+      <ol>
+        <li>Ayarlar → Uygulamalar → <b>Google Play Store</b></li>
+        <li><b>Varsayılan olarak aç</b> (Open by default)</li>
+        <li><b>Desteklenen bağlantıları aç</b> seçeneğini kapatın</li>
+        <li>Chrome'a dönüp adresi tekrar yapıştırın</li>
+      </ol>
+    </div>
+  </li>
+
+  <li>
+    <b>Uygulamayı indirin</b>
+    <p>Tester olduktan sonra mağaza sayfası size açılır. Bu adresi kopyalayıp adres
+    çubuğuna yapıştırın:</p>
+    <div class="copybox">
+      <code id="url-store">https://play.google.com/store/apps/details?id=com.odabasi.brainathlon</code>
+      <button class="copybtn" type="button" data-target="url-store">Kopyala</button>
+    </div>
+    <p><b>Yükle</b>'ye basın. Buton görünmüyorsa 5–10 dakika bekleyip sayfayı yenileyin;
+    yetkinin Play tarafına işlemesi biraz sürebiliyor.</p>
+  </li>
+
+</ul>
+
+<h2>Takılırsanız</h2>
+
+<h3>"App not available" yazıyor</h3>
+<p>Yanlış Google hesabındasınız. Sayfanın sağ üstünden birinci adımdaki hesaba geçin ya
+da ikinci adımı o hesapla tekrarlayın.</p>
+
+<h3>Sayfa yine bomboş açılıyor</h3>
+<p>Üçüncü adımdaki sarı kutuyu uygulayın. Düzelmezse Play Store'dan <b>Android System
+WebView</b> ve <b>Chrome</b>'u güncelleyin, ardından Ayarlar → Uygulamalar → Google Play
+Store → Depolama → <b>Önbelleği temizle</b>.</p>
+
+<h3>Play Store'da arayınca çıkmıyor</h3>
+<p>Beklenen durum. Kapalı testteki uygulamalar aramada görünmez; yalnızca dördüncü
+adımdaki adresten açılır.</p>
+
+<h3>Telefonda hiçbir şekilde olmuyor</h3>
+<p>İkinci ve üçüncü adımı bir bilgisayarın tarayıcısından yapın, aynı hesapla giriş
+yaparak. Sonra telefonda yalnızca dördüncü adım kalır.</p>
+
+<h2>Neden 14 gün</h2>
+<p>Google, kişisel geliştirici hesaplarında bir uygulamanın herkese açılabilmesi için en
+az 12 kişinin kapalı testte 14 gün kalmasını şart koşuyor. Bu yüzden uygulamayı erken
+silmemeniz ve gruptan çıkmamanız gerekiyor — süre yeniden başlıyor.</p>
+
+<p>Oynamak zorunda değilsiniz, ama oynarsanız asıl kazanç bizim olur:
+<a href="../support/">geri bildiriminizi</a> bekliyorum.</p>
+
+<hr>
+<footer>
+  <a href="../">Mindathlon</a>
+  <a href="../support/">Destek</a>
+  <a href="../privacy/">Gizlilik Politikası</a>
+  <a href="../../test/" hreflang="en">English</a>
+  <div class="copyright">© 2026 Mehmet Nusret Odabaşı</div>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll(".copybtn").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.target);
+    var text = node.textContent.trim();
+
+    function done() {
+      btn.textContent = "Kopyalandı";
+      btn.dataset.done = "1";
+      setTimeout(function () {
+        btn.textContent = "Kopyala";
+        btn.dataset.done = "0";
+      }, 1800);
+    }
+
+    function selectFallback() {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(node);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        if (document.execCommand("copy")) { done(); return; }
+      } catch (e) { /* metin seçili kaldı, elle kopyalanabilir */ }
+      btn.textContent = "Elle kopyalayın";
+      setTimeout(function () { btn.textContent = "Kopyala"; }, 2400);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, selectFallback);
+    } else {
+      selectFallback();
+    }
+  });
+});
+</script>
+
+</body>
+</html>

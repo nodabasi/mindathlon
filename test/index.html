@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindathlon — Testing Guide</title>
+<meta name="description" content="Four steps to join the Mindathlon closed test: join the group, become a tester, install the app.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="en" href="https://nodabasi.github.io/mindathlon/test/">
+<link rel="alternate" hreflang="tr" href="https://nodabasi.github.io/mindathlon/tr/test/">
+<style>
+/* Page-specific: copyable address rows and the warning box.
+   Colours and card treatment come from the shared stylesheet. */
+
+.copybox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.copybox code {
+  flex: 1 1 210px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  word-break: break-all;
+  user-select: all;
+}
+
+.copybtn {
+  flex: 0 0 auto;
+  min-width: 106px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  color: var(--blue);
+  font: 600 14px/1.2 inherit;
+  cursor: pointer;
+}
+
+.copybtn:hover { border-color: var(--blue); }
+.copybtn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.copybtn[data-done="1"] { background: var(--green-tint); color: var(--green); }
+
+.notebox {
+  margin: 20px 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.warnbox {
+  margin: 14px 0 4px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--yellow);
+  border-radius: 12px;
+}
+
+.notebox p:first-child,
+.warnbox p:first-child { margin-top: 0; }
+
+.notebox p:last-child,
+.warnbox ol:last-child { margin-bottom: 0; }
+
+.warnbox ol { margin: 10px 0 0; padding-left: 20px; }
+.warnbox ol li { margin: 5px 0; }
+.warnbox ol li::marker { color: var(--yellow); font-weight: 700; }
+
+/* Body copy inside a step card, after its title */
+.games p { margin: 8px 0; font-size: 15px; color: var(--ink-soft); }
+.games p b, .games p strong { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="../assets/logo.png" alt="Mindathlon">
+  <h1>Testing Guide</h1>
+  <p class="tagline">Try Mindathlon before everyone else</p>
+</header>
+
+<p>Mindathlon isn't public on Google Play yet. It won't come up in search — it is visible
+only to accounts enrolled in the closed test. The four steps below put you on that list.</p>
+
+<p>It takes about five minutes, and the one real condition is that the app stays
+installed on your phone for <b>14 days</b>.</p>
+
+<div class="notebox">
+  <p><b>One rule first:</b> don't tap the addresses below. Press <b>Copy</b>, then
+  <b>open Chrome and paste into the address bar</b>.</p>
+  <p>Here's why: when you tap one of these addresses, Android hands the page to the Play
+  Store app, which can't render it and shows a <b>blank white screen</b> instead. Pasting
+  into the address bar skips that handoff and the page opens normally.</p>
+</div>
+
+<h2>Four steps</h2>
+
+<ul class="games">
+
+  <li>
+    <b>Check which account you're on</b>
+    <p>Open the Play Store and tap your profile picture in the top right. The Gmail
+    address shown there is your testing account.</p>
+    <p><b>All three</b> remaining steps have to use that same account. If your phone has
+    more than one Google account, this is the mistake people make.</p>
+  </li>
+
+  <li>
+    <b>Join the testing group</b>
+    <p>Copy this address, paste it into Chrome's address bar and open it:</p>
+    <div class="copybox">
+      <code id="url-group">https://groups.google.com/g/mindathlon-testers</code>
+      <button class="copybtn" type="button" data-target="url-group">Copy</button>
+    </div>
+    <p>Check the profile picture in the top right to confirm you're on the account from
+    step one, then tap <b>Join group</b>. There's no approval to wait for — you're in
+    immediately.</p>
+  </li>
+
+  <li>
+    <b>Become a tester</b>
+    <p>Open a new tab in Chrome. Copy this address and again paste it into the
+    <b>address bar</b>:</p>
+    <div class="copybox">
+      <code id="url-optin">https://play.google.com/apps/testing/com.odabasi.brainathlon</code>
+      <button class="copybtn" type="button" data-target="url-optin">Copy</button>
+    </div>
+    <p>Tap <b>Become a tester</b> on the page that opens. When you see "You're a tester",
+    this step is done.</p>
+    <div class="warnbox">
+      <p><b>If you still get a blank screen,</b> the Play Store is still intercepting the
+      address. Turn that off:</p>
+      <ol>
+        <li>Settings → Apps → <b>Google Play Store</b></li>
+        <li><b>Open by default</b></li>
+        <li>Turn off <b>Open supported links</b></li>
+        <li>Go back to Chrome and paste the address again</li>
+      </ol>
+    </div>
+  </li>
+
+  <li>
+    <b>Install the app</b>
+    <p>Once you're a tester, the store page opens for you. Copy this address and paste it
+    into the address bar:</p>
+    <div class="copybox">
+      <code id="url-store">https://play.google.com/store/apps/details?id=com.odabasi.brainathlon</code>
+      <button class="copybtn" type="button" data-target="url-store">Copy</button>
+    </div>
+    <p>Press <b>Install</b>. If the button isn't there, wait 5–10 minutes and refresh —
+    it takes Play a little while to register your access.</p>
+  </li>
+
+</ul>
+
+<h2>If you get stuck</h2>
+
+<h3>It says "App not available"</h3>
+<p>You're on the wrong Google account. Switch accounts from the top right of the page, or
+repeat step two on the account you're actually using.</p>
+
+<h3>The page is still completely blank</h3>
+<p>Apply the yellow box in step three. If that doesn't help, update <b>Android System
+WebView</b> and <b>Chrome</b> from the Play Store, then go to Settings → Apps → Google
+Play Store → Storage → <b>Clear cache</b>.</p>
+
+<h3>Searching the Play Store doesn't find it</h3>
+<p>That's expected. Apps in closed testing never show up in search; they open only from
+the address in step four.</p>
+
+<h3>Nothing works on my phone</h3>
+<p>Do steps two and three in a browser on a computer, signed in to the same account. That
+leaves only step four to do on the phone.</p>
+
+<h2>Why 14 days</h2>
+<p>Google requires at least 12 people to stay in a closed test for 14 days before an app
+from a personal developer account can go public. That's why it matters that you don't
+uninstall early or leave the group — the clock starts over.</p>
+
+<p>You don't have to play. But if you do, that's where the real value is:
+<a href="../support/">send me your feedback</a>.</p>
+
+<hr>
+<footer>
+  <a href="../">Mindathlon</a>
+  <a href="../support/">Support</a>
+  <a href="../privacy/">Privacy Policy</a>
+  <a href="../tr/test/" hreflang="tr">Türkçe</a>
+  <div class="copyright">© 2026 Mehmet Nusret Odabaşı</div>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll(".copybtn").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.target);
+    var text = node.textContent.trim();
+
+    function done() {
+      btn.textContent = "Copied";
+      btn.dataset.done = "1";
+      setTimeout(function () {
+        btn.textContent = "Copy";
+        btn.dataset.done = "0";
+      }, 1800);
+    }
+
+    function selectFallback() {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(node);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        if (document.execCommand("copy")) { done(); return; }
+      } catch (e) { /* text is selected, can be copied by hand */ }
+      btn.textContent = "Copy by hand";
+      setTimeout(function () { btn.textContent = "Copy"; }, 2400);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, selectFallback);
+    } else {
+      selectFallback();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
