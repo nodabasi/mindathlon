@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mindathlon — Gizlilik Politikası</title>
-<meta name="description" content="Mindathlon'un cihazınızda sakladıkları, reklamlar için Google AdMob'un topladıkları ve bunu nasıl sınırlayabileceğiniz.">
+<meta name="description" content="Mindathlon'un cihazınızda sakladıkları, gönderdiği anonim istatistikler ve çökme raporları, reklamlar için Google AdMob'un topladıkları ve bunu nasıl sınırlayabileceğiniz.">
 <link rel="icon" href="../../assets/logo.png">
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="alternate" hreflang="en" href="https://nodabasi.github.io/mindathlon/privacy/">
@@ -16,26 +16,59 @@
 <header>
   <img src="../../assets/logo.png" alt="Mindathlon">
   <h1>Gizlilik Politikası</h1>
-  <p class="tagline">Ne saklıyoruz, reklamlar ne topluyor</p>
+  <p class="tagline">Ne saklıyoruz, neyi ölçüyoruz, reklamlar ne topluyor</p>
 </header>
 
-<p class="meta">Yürürlük tarihi: 1 Eylül 2026 · iOS ve Android için Mindathlon mobil
+<p class="meta">Yürürlük tarihi: 6 Ekim 2026 (sürüm 1.2) · iOS ve Android için Mindathlon mobil
 uygulamasını kapsar</p>
 
 <h2>Kısa özet</h2>
-<p>Oyunun kendisi her şeyi cihazınızda tutuyor — sunucumuz yok ve skorlarınızı hiç
-görmüyoruz. Mindathlon ücretsiz ve masrafını reklamlar karşılıyor; bu reklamları Google
-AdMob sunuyor ve AdMob cihazınıza dair veri topluyor. Bu sayfa her iki tarafı da, ikincisini
-nasıl sınırlayabileceğinizle birlikte anlatıyor.</p>
+<p>Skorlarınız, serileriniz ve ayarlarınız cihazınızda kalır; sunucumuz yok ve bunları
+hiç görmüyoruz. Hataları bulup oyunu geliştirmek için uygulama Google Firebase üzerinden
+anonim kullanım istatistikleri ve çökme raporları gönderir; bunu Ayarlar'dan
+kapatabilirsiniz. Mindathlon ücretsiz ve masrafını reklamlar karşılıyor; bu reklamları
+Google AdMob sunuyor ve AdMob cihazınıza dair veri topluyor. Bu sayfa üçünü de, nasıl
+sınırlayabileceğinizle birlikte anlatıyor.</p>
 
 <h2>Uygulamanın cihazınızda sakladıkları</h2>
 <ul class="plain">
-  <li><b>Ayarlarınız</b> — seçtiğiniz arayüz dili.</li>
+  <li><b>Ayarlarınız</b> — arayüz dili, tema, renk körlüğü modu ve kullanım
+  istatistiklerini paylaşıp paylaşmadığınız.</li>
   <li><b>Skorlarınız</b> — tamamlanan her maraton için zorluk ve toplam süre.</li>
+  <li><b>Günlük Maraton sonuçları</b> — oynadığınız günlük maratonların süreleri, güncel
+  seriniz ve en uzun seriniz.</li>
+  <li><b>Antrenman rekorları</b> — her etap ve zorluk için en iyi süreniz.</li>
 </ul>
 <p>Bunlar cihazınızın yerel depolamasına yazılır. Hiçbir yere yüklenmez, tarafımızca
 yedeklenmez ve bizim tarafımızdan görülemez. <b>Skorlar → Skorları sil</b> ile istediğiniz
 an temizleyebilirsiniz; uygulamayı kaldırmak da hepsini kalıcı olarak siler.</p>
+
+<h2>Kullanım istatistikleri ve çökme raporları</h2>
+<p>1.2 sürümünden itibaren Mindathlon, oyunun nasıl oynandığını anlamak ve çökmeleri
+düzeltmek için <b>Google Firebase Analytics</b> ve <b>Firebase Crashlytics</b> kullanır.
+Gönderilenler:</p>
+<ul class="plain">
+  <li><b>Oyun olayları</b> — bir maratonun veya antrenmanın başlatılması, bitirilmesi ya da
+  yarıda bırakılması (türü, zorluğu, süresi ve etabıyla); günlük sonucun paylaşılması
+  (içeriği değil); uygulama içi puanlama sorusuna verdiğiniz yanıt; hangi ekranların
+  açıldığı.</li>
+  <li><b>İki ayar</b> — uygulama dili ve renk körlüğü modunun açık olup olmadığı.</li>
+  <li><b>Çökme raporları</b> — uygulama çöktüğünde: teknik hata, cihaz modeli, işletim
+  sistemi ve uygulama sürümü.</li>
+  <li><b>Firebase'in standart verileri</b> — Firebase'in ürettiği rastgele bir uygulama
+  kurulum kimliği, IP adresinden türetilen ülke, cihaz türü, işletim sistemi ve uygulama
+  sürümü.</li>
+</ul>
+<p>Gönderilmeyenler: adınız, e-postanız, kişileriniz, kesin konumunuz, paylaştığınız
+şeylerin içeriği ve cihazınızın reklam tanımlayıcısı. Analytics, reklam kimliği toplama
+kapalı olarak çalışır; veriler kimliğinizle ilişkilendirilmez, reklam veya izleme için
+kullanılmaz. Biz yalnızca toplu raporları görürüz.</p>
+<p>Google bu veriyi bizim adımıza,
+<a href="https://firebase.google.com/support/privacy">Firebase gizlilik ve güvenlik
+koşulları</a> kapsamında işler.</p>
+<p>Durdurmak için uygulamada <b>Ayarlar → Gizlilik → Kullanım istatistiklerini paylaş</b>
+seçeneğini kapatın. İstatistikler ve çökme raporları hemen durur, oyun aynen çalışmaya
+devam eder.</p>
 
 <h2>Reklamlar</h2>
 <p>Tamamlanan bir maratonun sonunda tek bir tam ekran reklam çıkar. Etaplar sırasında
@@ -71,14 +104,15 @@ derecesiyle sınırlamasını istiyoruz.</p>
 sizde kalır; yalnızca reklamlar daha az alakalı hale gelir.</p>
 
 <h2>İnternet bağlantısı</h2>
-<p>Mindathlon açılırken bağlantı kontrolü yapar. Karşılama ekranını geçtikten sonra
-oyunların kendisi bağlantısız çalışır; bu kontrolün sebebi uygulamanın reklam destekli
-olmasıdır. Oyun verileriniz hiçbir aşamada iletilmez.</p>
+<p>Mindathlon internet bağlantısı olmadan da çalışır. Bağlantı varken reklamlar yüklenir
+ve bekleyen istatistikler ile çökme raporları gönderilir; skorlarınız ve sonuçlarınız
+cihazdan hiç çıkmaz.</p>
 
 <h2>Sonuç paylaşma</h2>
 <p>Bir maratonu bitirdiğinizde <b>Paylaş</b>'a dokunabilirsiniz. Bu, cihazınızın kendi
-paylaşım penceresini açar ve içinde zorluk ile toplam sürenizi belirten kısa bir metin
-bulunur. Siz bir uygulama seçene kadar hiçbir şey gönderilmez; sonrasında metnin akıbeti
+paylaşım penceresini açar. İçinde kısa bir metin bulunur: zorluk ya da Günlük Maraton
+numarası, toplam süreniz ve günlük maratonda her etap için renkli bir kare, seriniz ve bu
+sitenin bağlantısı. Siz bir uygulama seçene kadar hiçbir şey gönderilmez; sonrasında metnin akıbeti
 bizim değil, seçtiğiniz uygulamanın gizlilik politikasına tabidir.</p>
 
 <h2>Uygulama mağazaları</h2>
@@ -94,9 +128,11 @@ yazın, inceleyelim.</p>
 
 <h2>Haklarınız</h2>
 <p>KVKK ve GDPR gibi veri koruma mevzuatı size kişisel verilerinize erişme, düzeltme ve
-silinmesini isteme hakkı verir. Bizde hiçbiri durmuyor: oyun verisi sizin kontrolünüzdeki
-cihazınızda, reklam verisi ise Google'da. Reklam verisine ilişkin haklarınız için
-yukarıdaki denetimleri kullanın veya doğrudan Google ile iletişime geçin.</p>
+silinmesini isteme hakkı verir. Bizde sizi tanımlayan bir veri durmuyor: oyun verisi
+sizin kontrolünüzdeki cihazınızda, anonim istatistikler ve çökme raporları bizim adımıza
+Google Firebase'de, reklam verisi ise Google'da. İstatistikleri yukarıdaki uygulama içi
+anahtarla durdurabilirsiniz; reklam verisine ilişkin haklarınız için yukarıdaki
+denetimleri kullanın veya doğrudan Google ile iletişime geçin.</p>
 
 <h2>Bu politikadaki değişiklikler</h2>
 <p>Uygulamanın ileriki bir sürümü neyi sakladığını veya ilettiğini değiştirirse, bu sayfa
